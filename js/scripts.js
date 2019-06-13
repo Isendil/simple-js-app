@@ -20,28 +20,25 @@ for (var i = 0; i < repository.length; i++) {
 
 document.write ('<h3><a href="">' + repository[i][0] + '</a></h3>');
 
-document.write ('<p class="p__poke">Types: ');
+document.write ('<p class="p_poke">Types: ');
 for (var j = 0; j < repository[i][2].length; j++) {
   if (repository[i][2][j] == 'Grass') {
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
   else if (repository[i][2][j] == 'Poison'){
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
   else if (repository[i][2][j] == 'Fire'){
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
   else if (repository[i][2][j] == 'Burn'){
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
   else if (repository[i][2][j] == 'Water'){
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
   else if (repository[i][2][j] == 'Hydro pump'){
-    document.write (' <span class="p__poke";' + repository[i][2][j] + ',');
+    document.write (' <span class="p_poke";' + repository[i][2][j] + ',');
   }
 }
-
 document.write ('</p>');
-document.write ('<BR><BR>');
-}

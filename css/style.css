@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  margin: 1;
+  padding: 0;
+}
+
+:root {
+  --content-postion-top: 100px;
+  --content-position-bottom: 100px;
+
+/* Colors and Fonts */
+--primary-color: #708090;
+--secondary-color: #800080;
+--black: #000000;
+--khaki: #f0e68c;
+--font-weight: 400;
+--font-size: 20px;
+
+}
+
+/* The Body of html */
+body {
+  background-color: var(--primary-color);
+  margin: 20;
+  padding: 20;
+  font-weight: var(--font-weight);
+}
+
+/* set all Headings by default*/
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  font-weight: 30px;
+}
+h3 {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+}
+
+/* Anchor <a> settings */
+a {
+  text-decoration: none;
+  color: var(--khaki);
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+
+/* classes */
+p_poke {
+  font-size: 30px;
+  margin-right: 20px;
+}
