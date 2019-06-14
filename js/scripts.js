@@ -1,22 +1,26 @@
-var repository = [
-  ['Bullbasur', 0.7,
-  ['Grass', 'Poison']],
-
-  ['Charmander', 0.6,
-  ['Fire', 'Burn']],
-
-  ['Squirtle', 0.5,
-  ['Water', 'Hydro pump']],;
-  repository.forEach(function(currentName)){
-    console.log(currentName)
-  }
+var repository =
+{
+  name: 'Bullbasur', size: '0.7',
+type: 'Grass', 'Poison'
+}
+{
+  name: 'Charmander', size: '0.6',
+type: 'Fire', 'Burn',
+}
+{
+  name: 'Squirtle', size: '0.5',
+  type: 'Water', 'Hydro pump'
+},;
+repository.forEach(function(currentName)){
+  console.log(currentName)
+}
 ]
 
 console.log(repository[1][0]);
 
 // Loop for each item
 for (var i = 0; i < repository.length; i++) {
-  is (repository[i][1] > 1.1) {
+  if (repository[i][1] > 1.1) {
     document.write ('<p class="top_article">Wow - he is the biggest Pokemon</p>');
   }
 }
@@ -45,3 +49,4 @@ for (var j = 0; j < repository[i][2].length; j++) {
   }
 }
 document.write ('</p>');
+document.write ();
