@@ -3,10 +3,13 @@ var repository = [
   ['Grass', 'Poison']],
 
   ['Charmander', 0.6,
-  ['Fire', 'Burn'] ],
+  ['Fire', 'Burn']],
 
   ['Squirtle', 0.5,
-  ['Water', 'Hydro pump']],
+  ['Water', 'Hydro pump']],;
+  repository.forEach(function(currentName)){
+    console.log(currentName)
+  }
 ]
 
 console.log(repository[1][0]);
