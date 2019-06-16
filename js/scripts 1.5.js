@@ -14,18 +14,25 @@ var repository = [
 console.log (repository[1][0]);
 
 
+/* forEach function */
+var names = ['Bullbasur', 'Chrmander', 'Squirtle'];
+
+function loopBlockFunction(currentName){
+  console.log(currentName);
+}
+names.forEach(loopBlockFunction);
+
+
+
 for (var i = 0; i < repository.length; i++) {
-  console.log (repository[i]);
   if (repository[i][1] > 1.9) {
     document.write ('<p class="top_article">Wow - he is biggest Pokemon</p>');
   }
-
 
   document.write ('<H2><a href="">' + repository[i][0] + '</a></H2>');
 
   document.write ('<p class="p__small">Types: ');
   for (var j = 0; j < repository[i][2].length; j++) {
-    console.log (repository[j]);
     if (repository[i][2][j] == 'Grass') {
       document.write (' <span class="p__small" style="color:rgb(0, 100, 0);">' + repository[i][2][j] + ',');
     }
@@ -49,5 +56,9 @@ for (var i = 0; i < repository.length; i++) {
 
   }
   document.write ('</p>');
-  document.write ('<br>');
+  document.write ('<BR><BR>');
+}
+
+var pokemonRepository = (function () {
+  var repository = [];
 }
