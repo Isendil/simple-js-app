@@ -1,4 +1,4 @@
-var repository = [
+const repository = [
   ['Bullbasur',
   0.7,
   ['Grass', 'Poison']],
