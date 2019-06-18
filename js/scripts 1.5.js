@@ -1,16 +1,20 @@
 var repository = [
-  ['Bullbasur',
-  0.7,
-  ['Grass', 'Poison']],
-
-  ['Charmander', 0.6,
-  ['Fire', 'Burn']],
-
-  ['Squirtle',
-  0.5,
-  ['Water', 'hydro pump']],
-]
-
+  {
+    name: 'Bulbasaur',
+    height: 0.5,
+    type: ['Grass', 'Poison'],
+  },
+  {
+    name: 'Charmander',
+    height: 0.6,
+    type: ['Fire', 'Burn']
+  }
+  {
+    name: 'Squirtle',
+    height: 0.7,
+    Type: ['Water', 'hydro pump']
+  }
+];
 console.log (repository[1][0]);
 
 
