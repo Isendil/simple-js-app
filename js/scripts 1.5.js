@@ -8,13 +8,13 @@ var pokemonRepository = (function ()){
     {
       name: 'Charmander',
       height: 0.6,
-      type: ['Fire', 'Burn']
-    }
+      type: ['Fire', 'Burn'],
+    },
     {
       name: 'Squirtle',
       height: 0.7,
-      Type: ['Water', 'hydro pump']
-    }
+      Type: ['Water', 'hydro pump'],
+    },
   ];
 }
 console.log (repository[1][0]);
