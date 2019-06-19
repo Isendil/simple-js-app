@@ -15,8 +15,11 @@ var repository = [
     Type: ['Water', 'hydro pump']
   }
 ];
+
 console.log (repository[1][0]);
 
+/* forEach function */
+var names = ['Bullbasur', 'Chrmander', 'Squirtle']
 
 for (var i = 0; i < repository.length; i++) {
   var pokemon = repository[i];
@@ -24,6 +27,8 @@ for (var i = 0; i < repository.length; i++) {
     document.write ('<p class="top_article">Wow - he is biggest Pokemon</p>');
   }
 }
+ names.forEach(loopBlockFunction);
+
   document.write ('<H2><a href="">' + pokemon.height + '</a></H2>');
 
   document.write ('<p class="p__small">Types: ');
