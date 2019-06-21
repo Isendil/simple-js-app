@@ -19,7 +19,6 @@ var pokemonRepository = (function ()){
 }
 console.log (repository[1][0]);
 
-
 /* forEach function */
 var names = ['Bullbasur', 'Chrmander', 'Squirtle'];
 
