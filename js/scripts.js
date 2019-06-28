@@ -1,4 +1,3 @@
-
 var repository = [
   {
     name: "Bulbasaur",
@@ -16,6 +15,22 @@ var repository = [
     types: ["water"]
   }
 ];
+var pokemonRepository = (function () {
+  var repository = [];
+
+  return {
+    add: function(pokemon) {
+      repository.push(pokemon);
+    },
+    getAll: function() {
+      return repository;
+    }
+  };
+})();
+
+console.log(pokemonRepository.getAll()); 
+pokemonRepository.add({ name: 'Pikachu' });
+console.log(pokemonRepository.getAll());
 
 
 for (var i = 0; i < repository.length; i++) {
