@@ -23,6 +23,23 @@ var repository = [
 } ];
  console.log(repository)
 
+ var pokemonRepository = (function () {
+  var repository = []; // empty array
+
+  return {
+    add: function(pokemon) {
+      repository.push(pokemon);
+    },
+    getAll: function() {
+      return repository;
+    }
+  };
+})();
+
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: 'Pikachu' });
+console.log(pokemonRepository.getAll());
+
  /* Here is our loop */
 for (var i = 0; i < repository.length; i++) {
   var size;
