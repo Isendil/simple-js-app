@@ -74,11 +74,11 @@ var pokemonRepository = (function () {
       } else if (repository[i].types[j] == 'ground') {
         result = '<span style="color:rgb(0, 100, 0);"> ';
       } else if (repository[i].types[j] == 'fire') {
-        result = '<span style="color:red;"> ';
+        result = '<span style="color:darkred;"> ';
       } else if (repository[i].types[j] == 'psychic') {
         result = '<span style="color:yellow;"> ';
       } else if (repository[i].types[j] == 'steel') {
-        result = '<span style="color:rgb(199, 21, 133);"> ';
+        result = '<span style="color:rgb(128, 0, 128);"> ';
       } else if (repository[i].types[j] == 'flying') {
         result = '<span style="color:blue;"> ';
       }
