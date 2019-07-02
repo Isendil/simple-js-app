@@ -24,7 +24,7 @@ var repository = [
    console.log(repository)
   
    var pokemonRepository = (function () {
-    var repository = []; // empty array
+    var repository = []; 
   
     return {
       add: function(pokemon) {
@@ -41,13 +41,13 @@ var repository = [
   console.log(pokemonRepository.getAll());
   
    /* Here is our loop */
-  for (var i = 0; i < repository.length; i++) {
-    var size;
-    if (repository[i].height > 1) {
-    size = "Wow, that is a big Pokemon";
-  } else {
-    size = "It is a small Pokemon";
-  }
+   var $container = document.querySelectorAll('.pokemon-list');
+   var button = document.createElement('button');
+   button.innerText = repository.name;
+   $container.appendChild(button);
+   repository.forEach(function(pokemon, index) {
+    var pokemon = pokemon
+    })
   
   var result;
   for (var j = 0; j < repository[i].types.length; j++) {
@@ -65,10 +65,6 @@ var repository = [
       result = '<span style="color:blue;"> ';
     }
   }
-  
-  
-  
-  
   
   
   
