@@ -55,12 +55,21 @@ var pokemonRepository = (function () {
  }
  */
 
+var $pokemonList = document.querySelector('.pokemon_list');
+
   // for each loop
   var repository = pokemonRepository.getAll();
   console.log('reps', repository)
   repository.forEach(function (pokemon, i) {
 
-    var size;
+
+ var listItem = document.createElement('li')
+ var $pokemon_list = document.querySelector('.pokemon_list');
+    button.innerText += repository;
+    $pokemon_list.appendChild(button);
+
+
+    /* var size;
     if (pokemon.height > 1) {
       size = "Wow, that is a big Pokemon";
     } else {
@@ -85,7 +94,7 @@ var pokemonRepository = (function () {
     }
 
 
-    /* Here we ask we write what we want to see on our browser */
+    /* Here we ask we write what we want to see on our browser 
     document.write(
       '<div class="box">' +
       repository[i].name +
@@ -101,5 +110,5 @@ var pokemonRepository = (function () {
       "<br>" +
       "</div>"
     );
-    console.log(size, result)
+    console.log(size, result) */
   });
