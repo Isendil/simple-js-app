@@ -1,4 +1,3 @@
-
 var pokemonRepository = (function () {
   var repository = [
     {
@@ -29,13 +28,19 @@ var pokemonRepository = (function () {
   ];
 
   function add(pokemon) {
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'types' in pokemon
+    ) {
     repository.push(pokemon);
+    }
   }
 
   function getAll() {
     return repository;
   }
-
   return {
     add: add,
     getAll: getAll
@@ -43,9 +48,11 @@ var pokemonRepository = (function () {
 })();
   
   console.log(pokemonRepository.getAll()); // []
-  //pokemonRepository.add({ name: 'Pikachu' });
+  pokemonRepository.add({ name: 'Squirtle', height: 0.6, types: ['water'] });
   console.log(pokemonRepository.getAll());
   
+  // seeing everything inside the console.
+  // console.dir(document);
   
   
     
@@ -62,7 +69,7 @@ var pokemonRepository = (function () {
 
   var repository = pokemonRepository.getAll();
   console.log('reps',repository)
-  repository.forEach(function(pokemon, i) {
+  repository.forEach(function(pokemon) {
    
     var size;
     if (pokemon.height > 1) {
@@ -72,21 +79,24 @@ var pokemonRepository = (function () {
     }
     
     var result;
-    for (var j = 0; j < pokemon.types.length; j++) {
-      if (repository[i].types[j] == 'electric') {
+    pokemon.types.forEach(function(item) {
+      if (item == 'electric') {
         result = '<span style="color:yellow;"> ';
-      } else if (repository[i].types[j] == 'ground') {
+      } else if (item == 'ground') {
         result = '<span style="color:rgb(0, 100, 0);"> ';
-      } else if (repository[i].types[j] == 'fire') {
-        result = '<span style="color:red;"> ';
-      } else if (repository[i].types[j] == 'psychic') {
+      } else if (item == 'fire') {
+        result = '<span style="color:darkred;"> ';
+      } else if (item == 'psychic') {
         result = '<span style="color:yellow;"> ';
-      } else if (repository[i].types[j] == 'steel') {
-        result = '<span style="color:rgb(199, 21, 133);"> ';
-      } else if (repository[i].types[j] == 'flying') {
+      } else if (item == 'steel') {
+        result = '<span style="color:rgb(75, 0, 130);"> ';
+      } else if (item == 'flying') {
+        result = '<span style="color:sandybrown;"> ';
+      } else if (item == 'water') {
         result = '<span style="color:blue;"> ';
       }
-    }
+    });
+
   /* Here we ask we write what we want to see on our browser */
     document.write(
       '<div class="box">' +

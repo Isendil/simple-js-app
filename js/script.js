@@ -1,114 +1,118 @@
-/* here goes the var, arrays, objects with strings inside them */
 var pokemonRepository = (function () {
   var repository = [
     {
       name: 'Pikachu',
       height: 0.4,
       types: ['electric']
-    }, {
+    }, 
+    {
       name: 'Torterra',
       height: 2.2,
       types: ['grass', 'ground']
-    }, {
+    },
+     {
       name: 'Ninetales',
       height: 1.1,
       types: ['fire']
-    }, {
+    }, 
+    {
       name: 'Metalgross',
       height: 1.6,
       types: ['psychic', 'steel']
-    }, {
+    }, 
+    {
       name: 'Pidove',
       height: 0.3,
       types: ['flying']
-    }];
-  console.log(repository)
+    } 
+  ];
 
   function add(pokemon) {
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'types' in pokemon
+    ) {
     repository.push(pokemon);
+    }
   }
 
   function getAll() {
     return repository;
   }
-
   return {
     add: add,
     getAll: getAll
   };
 })();
-
+  
   console.log(pokemonRepository.getAll()); // []
-  // pokemonRepository.add({ name: 'Pikachu' });
+  pokemonRepository.add({ name: 'Squirtle', height: 0.6, types: ['water'] });
   console.log(pokemonRepository.getAll());
-
-
-
-
-  /* Here is our loop 
- for (var i = 0; i < repository.length; i++) {
-   var size;
-   if (repository[i].height > 1) {
-   size = "Wow, that is a big Pokemon";
- } else {
-   size = "It is a small Pokemon";
- }
- */
-
-var $pokemonList = document.querySelector('.pokemon_list');
-
+  
+  // seeing everything inside the console.
+  // console.dir(document);
+  
+  
+    
+   /* Here is our loop 
+  for (var i = 0; i < repository.length; i++) {
+    var size;
+    if (repository[i].height > 1) {
+    size = "Wow, that is a big Pokemon";
+  } else {
+    size = "It is a small Pokemon";
+  } */
+  
   // for each loop
+
   var repository = pokemonRepository.getAll();
-  console.log('reps', repository)
-  repository.forEach(function (pokemon, i) {
-
-
- var listItem = document.createElement('li')
- var $pokemon_list = document.querySelector('.pokemon_list');
-    button.innerText += repository;
-    $pokemon_list.appendChild(button);
-
-
-    /* var size;
+  console.log('reps',repository)
+  repository.forEach(function(pokemon) {
+   
+    var size;
     if (pokemon.height > 1) {
       size = "Wow, that is a big Pokemon";
     } else {
       size = "It is a small Pokemon";
     }
-
+    
     var result;
-    for (var j = 0; j < pokemon.types.length; j++) {
-      if (repository[i].types[j] == 'electric') {
+    pokemon.types.forEach(function(item) {
+      if (item == 'electric') {
         result = '<span style="color:yellow;"> ';
-      } else if (repository[i].types[j] == 'ground') {
+      } else if (item == 'ground') {
         result = '<span style="color:rgb(0, 100, 0);"> ';
-      } else if (repository[i].types[j] == 'fire') {
-        result = '<span style="color:red;"> ';
-      } else if (repository[i].types[j] == 'psychic') {
+      } else if (item == 'fire') {
+        result = '<span style="color:darkred;"> ';
+      } else if (item == 'psychic') {
         result = '<span style="color:yellow;"> ';
-      } else if (repository[i].types[j] == 'steel') {
-        result = '<span style="color:rgb(199, 21, 133);"> ';
-      } else if (repository[i].types[j] == 'flying') {
+      } else if (item == 'steel') {
+        result = '<span style="color:rgb(75, 0, 130);"> ';
+      } else if (item == 'flying') {
+        result = '<span style="color:sandybrown;"> ';
+      } else if (item == 'water') {
         result = '<span style="color:blue;"> ';
       }
-    }
+    });
 
-
-    /* Here we ask we write what we want to see on our browser 
+  /* Here we ask we write what we want to see on our browser */
     document.write(
       '<div class="box">' +
-      repository[i].name +
+      pokemon.name +
       "(height: " +
-      repository[i].height +
+      pokemon.height +
       "m" +
       ")" +
       "<br>" +
       size +
       result +
       "<br>" +
-      repository[i].types +
+      pokemon.types +
       "<br>" +
       "</div>"
     );
-    console.log(size, result) */
+    console.log(size, result)
   });
+  
