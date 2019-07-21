@@ -1,44 +1,18 @@
-// variable pokemonRepository contains Array, objects, functions getAll-add-addListItem-showDetails and the return
-// for pokemon informations.
+
 var pokemonRepository = (function () {
-  // the repository has Arrays that within these Arrays are (objects) names, heights, types that we have specified.
-  var repository = [
-    {
-      name: 'Pikachu ',
-      height: 0.4 ,
-      types: ['electric']
-    }, 
-    {
-      name: 'Torterra ',
-      height: 2.2 ,
-      types: ['grass', 'ground']
-    },
-     {
-      name: 'Ninetales ',
-      height: 1.1 ,
-      types: ['fire']
-    }, 
-    {
-      name: 'Metalgross ',
-      height: 1.6 ,
-      types: ['psychic', 'steel']
-    }, 
-    {
-      name: 'Pidove ',
-      height: 0.3 ,
-      types: ['flying']
-    } 
-  ];
+  var repository = [];
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   // function add  specifically adds whatever is outside the code to access it.
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
       'name' in pokemon &&
-      'height' in pokemon &&
-      'types' in pokemon
+      'detailsUrl' in pokemon
     ) {
-    repository.push(pokemon);
+      repository.push(pokemon);
+    } else {
+      console.log('add and object');
     }
   }
   // function that can get what is written outside the IIFE code and access it.
@@ -57,65 +31,65 @@ var pokemonRepository = (function () {
     button.classList.add("my-class");
     $listItem.appendChild(button);
     pokemonList.appendChild($listItem);
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
       showDetails(pokemon);
-      
+
     });
   }
-  // in here we created a function in order to see the details of each pokemon.
-  // created a console.log in order to see it working properly.
-  // added an alert to see the height and the type of pokemon as informations of a specific pokemon.
+
   function showDetails(item) {
-    console.log(item);
-    alert(item.height + item.types);
+    pokemonRepository.loadDetails(item).then(function () {
+      // console.log(item)
+    });
+  }
+  function loadList() {
+    return fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        json.results.forEach(function (item) {
+          var pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+          console.log(pokemon);
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  }
+
+  function loadDetails(item) {
+    var url = item.detailsUrl;
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = Object.keys(details.types);
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
   //function return with the keys add and getAll what we have defined and ask it specificaly, in this case names etc...
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
-  
-// in this case we added some names and informations to the pokemonRepository 
-// and it's connected with the line 34 to 39, also we checked it inside the console if it works.
-  console.log(pokemonRepository.getAll()); // []
-  pokemonRepository.add({ name: 'Squirtle ', height: 0.6 , types: ['water'] });
-  pokemonRepository.add({ name: 'MewTwo ', height: 2.2 , types: ['psychic'] });
-  console.log(pokemonRepository.getAll());
-  
-  
-   // created a forEach loop
-  pokemonRepository.getAll().forEach(function(item) {
-     // we created a variable size here with an argument and asked to show which one was big and which small.
-    var size;
-    if (item.height > 1) {
-      size = "Wow, that is a big Pokemon";
-    } else {
-      size = "It is a small Pokemon";
-    }
-    
-    // the variable results was created to show the color and type of each pokemon.
-    var result;
-    item.types.forEach(function(typeItem) {
-      if (typeItem == 'electric') {
-        result = '<span style="color:yellow;"> ';
-      } else if (typeItem == 'ground') {
-        result = '<span style="color:rgb(0, 100, 0);"> ';
-      } else if (typeItem == 'fire') {
-        result = '<span style="color:darkred;"> ';
-      } else if (typeItem == 'psychic') {
-        result = '<span style="color:yellow;"> ';
-      } else if (typeItem == 'steel') {
-        result = '<span style="color:rgb(75, 0, 130);"> ';
-      } else if (typeItem == 'flying') {
-        result = '<span style="color:sandybrown;"> ';
-      } else if (typeItem == 'water') {
-        result = '<span style="color:blue;"> ';
-      }
-    });
 
-    pokemonRepository.addListItem(item);
-    
+pokemonRepository.loadList()
+  .then(function () {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+      pokemonRepository.addListItem(pokemon);
+    });
   });
-  
