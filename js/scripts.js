@@ -1,7 +1,7 @@
 
 var pokemonRepository = (function() {
   var repository = [];
-  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=20";
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=900";
 
   function add(pokemon) {
     if (
@@ -70,25 +70,52 @@ var pokemonRepository = (function() {
         item.types = [];
         for (var i = 0; i < details.types.length; i++) {
           item.types.push(details.types[i].type.name);
-          if (details.types[i].type.name == "grass") {
-            document.getElementById("modal-container").style.background =
-              "lightgreen";
-          } else if (details.types[i].type.name == "fire") {
-            document.getElementById("modal-container").style.background = "red";
-          } else if (details.types[i].type.name == "psychic") {
-            document.getElementById("modal-container").style.background =
-              "yellow";
-          } else if (details.types[i].type.name == "poison") {
-            document.getElementById("modal-container").style.background =
-              "purple";
-          } else if (details.types[i].type.name == "water") {
-            document.getElementById("modal-container").style.background =
-              "blue";
-          } else if (details.types[i].type.name == "bug") {
-            document.getElementById("modal-container").style.background =
-              "#3f000f";
-          }
+ 
         }
+        if (item.types.includes('grass')) {
+          document.getElementById("modal-container").style.background =
+            "lightgreen";
+        } else if (item.types.includes('fire')) {
+          document.getElementById("modal-container").style.background = "red";
+        } else if (item.types.includes('psychic')) {
+          document.getElementById("modal-container").style.background =
+            "#FF69B4";
+        } else if (item.types.includes('poison')) {
+          document.getElementById("modal-container").style.background =
+            "purple";
+        } else if (item.types.includes('water')) {
+          document.getElementById("modal-container").style.background =
+            "blue";
+        } else if (item.types.includes('bug')) {
+          document.getElementById("modal-container").style.background =
+            "#3f000f";
+        } else if (item.types.includes('rock')) {
+          document.getElementById("modal-container").style.background =
+            "#BC8F8F";
+        }  else if (item.types.includes('flying')) {
+          document.getElementById("modal-container").style.background =
+            "#2F4F4F"; 
+        }  else if (item.types.includes('electric')) { 
+          document.getElementById("modal-container").style.background =
+            "gold";
+        } else if (item.types.includes('ice')) { 
+          document.getElementById("modal-container").style.background =
+            "#4169E1";
+        } else if (item.types.includes('ghost')) { 
+          document.getElementById("modal-container").style.background =
+            "#8B008B";
+        }  else if (item.types.includes('ground')) { 
+          document.getElementById("modal-container").style.background =
+            "#D2B48C";
+        } else if (item.types.includes('fairy')) { 
+          document.getElementById("modal-container").style.background =
+            "#EE82EE";
+        } else if (item.types.includes('steel')) { 
+          document.getElementById("modal-container").style.background =
+            "#708090";
+        }
+
+
         //loop to get the abilities of a selected pokemon
         item.abilities = [];
         for (var i = 0; i < details.abilities.length; i++) {
